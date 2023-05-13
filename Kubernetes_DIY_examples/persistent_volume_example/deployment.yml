@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: volume-deploy
+spec:
+  selector:
+    matchLabels:
+      app: volume-web
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: volume-web
+    spec:
+      containers:
+      - name:  web-with-volume
+        image: boploi/volume_example:2
+        env:
+          - name: FOLDER_NAME
+            valueFrom:
+              configMapKeyRef:
+                name: deploy-volume-cm
+                key: FOLDER_NAME
+        volumeMounts:
+          - name:  volume-web
+            mountPath: /app/variable_env
+      volumes:
+        - name: volume-web
+          persistentVolumeClaim:
+            claimName: host-pvc

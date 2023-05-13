@@ -1,0 +1,14 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-deployment
+spec:
+  replicas: 0
+  template:
+    metadata:
+      labels:
+        name: helloworld-web
+    spec:
+      containers:
+        - name: helloworld
+          image: boploi/boploi
