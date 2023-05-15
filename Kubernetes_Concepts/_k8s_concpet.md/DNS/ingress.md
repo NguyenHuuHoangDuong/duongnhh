@@ -1,0 +1,12 @@
+- ### Ingress
+    -   Sử dụng ingress controller để giảm sự phụ thuộc vào <loadbalancer> (reduce cost of loadbalancer)
+        -   Dùng 1 loadbalancer để catch all external traffic và deliver ingress controller
+        -   ingress controller có thể <cấu hình> để <route different traffic> tới tất cả apps based on HTTP rule (host and prefixes)
+        -   ingress chỉ hoạt động với HTTP(s) - based applications
+  -   Ingress là một giải pháp cho phép inbound connection với cluster
+  -   <Inbound traffic> có thể gửi đến Pod. có thể được truy cập đến các pod khác, từ kubernetes API server, hoặc từ bên ngoài
+  -   <Outbound traffic> gửi từ pod có thể truy cập đến các pods khác, đến kubernetes API server, hoặc đến thế giới bên ngoài
+          -    Network policies: netwowerk policies chấp nhận control pods có thể giao tiếp với nhau
+          -    Pod Security policies: Pod Security policies chấp nhận điều khiển cổng và giao thức đã chấp nhận trên pods
+          -    Service account: service account cho phép kiểm soát pods nào có quyền truy cập đến kubernetes API server
+          -    ingress controllers: điều khiển xâm nhập cho phép bạn điều khiển truy cập định tuyến đến pods
