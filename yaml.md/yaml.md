@@ -35,3 +35,20 @@
             Model: 2000
         Transmission: Automatic
         Price: $2000
+
+- ### : Thứ tự thuộc tính không quan trọng 
+        Banana:
+            Caliories: 105
+            Fat:104
+Same****
+        Orange:
+            Fat:104
+            Caliories:105
+- ### : Thứ tự danh sách quan trọng     bash    - 
+        Fruits:
+            -banana
+            -apple
+ Not same ****       
+        Fruits:
+            -apple
+            -banana
